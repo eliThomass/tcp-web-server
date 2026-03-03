@@ -37,7 +37,7 @@ def start_server():
     serverSocket = socket(AF_INET, SOCK_STREAM)
     #Prepare a server socket
     #Fill in start
-    port = 4567
+    port = 12000
     serverSocket.bind(('', port))
     serverSocket.listen(5) # up to 5 connections can listen
     #Fill in end
