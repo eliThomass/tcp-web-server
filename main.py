@@ -1,4 +1,4 @@
-from socket import socket, AF_INET, SOCK_STREAM
+from socket import socket, AF_INET, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
 import sys # In order to terminate the program
 import threading as th
 
@@ -35,6 +35,7 @@ def handle_request(connectionSocket, addr):
 # This is for the optional threading exercise
 def start_server():
     serverSocket = socket(AF_INET, SOCK_STREAM)
+    serverSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1) # Added this, was getting port in use error [Errno 98]
     #Prepare a server socket
     #Fill in start
     port = 12000
